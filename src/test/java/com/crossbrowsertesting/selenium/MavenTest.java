@@ -21,6 +21,8 @@ import java.net.URL;
  * Selenium Test to CBT using maven
  */
 public class MavenTest {
+    static String buildName = System.getenv("CBT_BUILD_NAME");
+    static String buildNumber = System.getenv("CBT_BUILD_NUMBER");
     static String username = System.getenv("CBT_USERNAME"); // Your username
     static String authkey = System.getenv("CBT_AUTHKEY");  // Your authkey
     static String browserApiName = System.getenv("CBT_BROWSER");
