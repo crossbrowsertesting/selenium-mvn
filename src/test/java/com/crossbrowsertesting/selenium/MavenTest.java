@@ -35,8 +35,8 @@ public class MavenTest {
     @Before
     public void setup() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("name", "Login Form Example");
-        caps.setCapability("build", "1.0");
+        caps.setCapability("name", buildName);
+        caps.setCapability("build", buildNumber);
         caps.setCapability("browser_api_name", browserApiName);
         caps.setCapability("os_api_name", osApiName);
         caps.setCapability("screen_resolution", resolution);
