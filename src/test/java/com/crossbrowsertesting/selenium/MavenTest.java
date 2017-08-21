@@ -21,8 +21,11 @@ import java.net.URL;
  * Selenium Test to CBT using maven
  */
 public class MavenTest {
-    static String username = System.getProperty("username"); // Your username
-    static String authkey = System.getProperty("authkey");  // Your authkey
+    static String username = System.getenv("CBT_USERNAME"); // Your username
+    static String authkey = System.getenv("CBT_AUTHKEY");  // Your authkey
+    static String browserApiName = System.getenv("CBT_BROWSER");
+    static String osApiName = System.getenv("CBT_OPERATING_SYSTEM");
+    static String resolution = System.getenv("CBT_RESOLUTION");
     String testScore = "unset";
     DesiredCapabilities caps;
     RemoteWebDriver driver;
@@ -32,10 +35,9 @@ public class MavenTest {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("name", "Login Form Example");
         caps.setCapability("build", "1.0");
-        caps.setCapability("browserName", "Internet Explorer");
-        caps.setCapability("version", "10");
-        caps.setCapability("platform", "Windows 7 64-Bit");
-        caps.setCapability("screen_resolution", "1366x768");
+        caps.setCapability("browser_api_name", browserApiName);
+        caps.setCapability("os_api_name", osApiName);
+        caps.setCapability("screen_resolution", resolution);
         caps.setCapability("record_video", "true");
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
     }
