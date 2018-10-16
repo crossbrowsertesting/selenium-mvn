@@ -25,9 +25,11 @@ public class MavenTest {
     static String buildNumber = System.getenv("CBT_BUILD_NUMBER");
     static String username = System.getenv("CBT_USERNAME"); // Your username
     static String authkey = System.getenv("CBT_AUTHKEY");  // Your authkey
-    static String browserApiName = System.getenv("CBT_BROWSER");
-    static String osApiName = System.getenv("CBT_OPERATING_SYSTEM");
+    static String browserName = System.getenv("CBT_BROWSER");
+    static String version = System.getenv("CBT_VERSION");
+    static String platform = System.getenv("CBT_PLATFORM");
     static String resolution = System.getenv("CBT_RESOLUTION");
+
     String testScore = "unset";
     DesiredCapabilities caps;
     RemoteWebDriver driver;
@@ -37,10 +39,11 @@ public class MavenTest {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("name", buildName);
         caps.setCapability("build", buildNumber);
-        caps.setCapability("browser_api_name", browserApiName);
-        caps.setCapability("os_api_name", osApiName);
+        caps.setCapability("browserName", browserName);
+        caps.setCapability("platform", platform);
+        caps.setCapability("version", version);
         caps.setCapability("screen_resolution", resolution);
-        caps.setCapability("record_video", "true");
+
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
     }
     @Test
