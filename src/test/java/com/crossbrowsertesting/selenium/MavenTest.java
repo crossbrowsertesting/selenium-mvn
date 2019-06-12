@@ -43,6 +43,7 @@ public class MavenTest {
         caps.setCapability("platform", platform);
         caps.setCapability("version", version);
         caps.setCapability("screen_resolution", resolution);
+        caps.setCapability("record_network", "false");
 
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + authkey +"@hub.crossbrowsertesting.com:80/wd/hub"), caps);
     }
